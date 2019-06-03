@@ -1,0 +1,99 @@
+clase css 
+
+
+
+
+para tomar un tipo de letras se usa
+
+font-family:Tipo de letra(Arial)  
+
+word-spacing:5px // dar espacio entre palabras 
+
+
+line-height:50px; //espacio entre lineas(sirve para dar un espacio mas grande que el <br/>)
+
+font-weight: bold; // poner palabras en negrito
+
+font-style:italic; // poner texto en italico
+
+
+
+
+
+clase 2:
+
+
+<html>
+
+
+<head>
+
+<title>Pagina 1</title>
+
+<style type = "text/css">
+
+	body{
+		background-image: url(descarga.jpg); //sirve para poner una imagen en toda la pagina
+		background-repeat:no-repeat; //sirve para que la imagen no se repita en toda la pagina
+		background-position:50px 100px; // sirve para dar posicion de izquierda y arriba a la imagen
+	
+	}
+	
+	h1{
+		background-color:red; //sirve para darle color alredor de las letras del titulo
+		border: 3px solid black; // sirve para dar un borde de cualquier color alrededor del titulo
+		padding: 5px; // sirve para dar espacio dentro del titulo
+		border:5px dotted blue;//sirve para poner bordes con puntos ...
+		width:300px //sirve para darle ancho a un texto a titulo o imagen en pocas palabras para recortar o agrandar
+		heigth:90px// sirve para darle altura a un texto titulo o imagen
+	}
+
+	p{
+		border: 2px solid black;
+		margin:20px;  //sirve para dar margen(espacio) a texto 
+		margin-left:20px // dar margen solo por la izquierda 
+	}
+
+
+		// el link tiene diferentes estados
+		active que es que cuando mantenemos presionado un link
+		pase algo
+		hover es para cuando el click pase por el link pase algo
+		y el visited es para que cuando uno ya visito el link pase algo
+
+
+a:link{
+		font-size: 30px;
+		text-decoration:none;
+	}
+	
+	a:active{
+		font-size: 60px;
+		color:blue;
+	}
+	
+	a:hover{
+		background-color:yellow;
+	
+	}
+	
+	a:visited{
+		color: black
+	}
+	
+	
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Titulo pagina 1</h1>
+
+
+
+</body>
+
+
+</html>
