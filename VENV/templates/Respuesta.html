@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        Resultado
+    </head>
+    <body>
+        {% for r in range(tamaño) %}
+            <p>
+                {% if respuestas[r] == 0 %}
+                    {{r+1}} No es falsa
+                {% endif %}
+                {% if respuestas[r] == 1 %}
+                    {{r+1}} Es falsa
+                {% endif %}
+            </p>
+        {% endfor %}
+    </body>
+</html>

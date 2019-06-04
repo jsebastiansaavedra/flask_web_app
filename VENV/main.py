@@ -4,11 +4,14 @@ import os
 from werkzeug import secure_filename
 import glob
 import shutil
+from sklearn.externals import joblib
+import pandas as pd
+from sklearn.preprocessing import StandardScaler
 
 
 app = Flask(__name__)
 #carpeta donde se subiran los archivos
-app.config['UPLOAD_FOLDER'] = './archivos csv'
+app.config['UPLOAD_FOLDER'] = '/'
 
 
 @app.route('/')
@@ -18,7 +21,7 @@ def upload_file():
 @app.route('/upload', methods=['POST'])
 def uploader():
     if request.method == 'POST':
-        folder='archivos csv'
+        folder='/'
         #Eliminar archivo cada vez que ingrese otro
         for the_file in os.listdir(folder):
             file_path = os.path.join(folder,the_file)
@@ -33,8 +36,15 @@ def uploader():
         filename=secure_filename(f.filename)
         f.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
         
-        return "<h1>Archivo Subido exitosamente</h1>"
+        lr = joblib.load("modelo.pkl")
+        valores = pd.read_csv("prueba.csv")
+        valores['normAmount'] = StandardScaler().fit_transform(valores['Amount'].values.reshape(-1, 1))
+        valores = valores.drop(['Time','Amount'],axis=1)
+        X = valores.ix[:, valores.columns != 'Class']
+        respuestas = lr.predict(X.values)
+        tamaño = len(respuestas)
+        return render_template("Respuesta.html", respuestas=respuestas, tamaño=tamaño)
         
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     app.run()
