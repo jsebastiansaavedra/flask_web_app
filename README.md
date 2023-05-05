@@ -1,0 +1,3 @@
+# Fraud Detection System with Flask and AI
+
+This web application, developed by Juan Saavedra and Moises Maestre as a student project at the university, uses artificial intelligence to detect fraudulent credit card transactions. Built with Flask, a lightweight web framework in Python, the system utilizes machine learning algorithms from the Scikit-Learn and TensorFlow libraries to analyze transaction data in real-time and identify patterns that are indicative of fraudulent activity. The application also includes an intuitive user interface for administrators to manage and review flagged transactions, as well as customizable settings for adjusting the sensitivity and specificity of the fraud detection system.
